@@ -63,7 +63,9 @@ Plugin.prototype.apply = function(compiler) {
 
       var chunks = {};
       stats.compilation.chunks.map(function(chunk){
-        var files = chunk.files.map(function(file){
+        var files = chunk.files.filter(function (file) {
+          return file.indexOf('.map') === -1
+        }).map(function(file){
           var F = {name: file};
           var publicPath = self.options.publicPath || compiler.options.output.publicPath;
           if (publicPath) {
