@@ -69,9 +69,6 @@ Plugin.prototype.apply = function(compiler) {
           if (publicPath) {
             F.publicPath = publicPath + file;
           }
-          if (compiler.options.output.path) {
-            F.path = path.join(compiler.options.output.path, file);
-          }
           return F;
         });
         chunks[chunk.name] = files;
